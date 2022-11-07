@@ -1,0 +1,46 @@
+country,number,type
+Poland (1939),"3,400,000",pre_war_pop
+Soviet Union* (1939),"3,000,000",pre_war_pop
+Romania (1930),"757,000",pre_war_pop
+Germany (1933),"500,000",pre_war_pop
+Hungary (1930),"445,000",pre_war_pop
+Czechoslovakia (1930),"357,000",pre_war_pop
+France (1940),"300,000",pre_war_pop
+Austria (1938),"206,000",pre_war_pop
+Lithuania (1939),"150,000",pre_war_pop
+Netherlands (1941),"140,000",pre_war_pop
+Latvia (1939),"93,500",pre_war_pop
+Belgium (1940),"90,000",pre_war_pop
+Greece (1940),"70,000",pre_war_pop
+Yugoslavia (1930),"68,500",pre_war_pop
+Bulgaria (1934),"48,400",pre_war_pop
+Italy (1938),"46,000",pre_war_pop
+Denmark (1940),"7,800",pre_war_pop
+Estonia (1934),"4,300",pre_war_pop
+Luxembourg (1940),"3,600",pre_war_pop
+Finland (1942),"2,200",pre_war_pop
+Norway (1940),"1,800",pre_war_pop
+Albania (1930),200,pre_war_pop
+Poland (1939),"3,000,000",murdered_jews
+Soviet Union* (1939),"1,000,000",murdered_jews
+Romania (1930),"287,000",murdered_jews
+Germany (1933),"165,000",murdered_jews
+Hungary (1930),"270,000",murdered_jews
+Czechoslovakia (1930),"260,000",murdered_jews
+France (1940),"76,000",murdered_jews
+Austria (1938),"65,000",murdered_jews
+Lithuania (1939),"145,000",murdered_jews
+Netherlands (1941),"102,000",murdered_jews
+Latvia (1939),"70,000",murdered_jews
+Belgium (1940),"25,000",murdered_jews
+Greece (1940),"58,800",murdered_jews
+Yugoslavia (1930),"60,000",murdered_jews
+Bulgaria (1934),142,murdered_jews
+Italy (1938),"7,500",murdered_jews
+Denmark (1940),116,murdered_jews
+Estonia (1934),"1,000",murdered_jews
+Luxembourg (1940),"1,200",murdered_jews
+Finland (1942),7,murdered_jews
+Norway (1940),758,murdered_jews
+Albania (1930),100,murdered_jews
+Source: https://www.statista.com/statistics/1070564/jewish-populations-deaths-by-country/,,

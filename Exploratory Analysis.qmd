@@ -1,0 +1,94 @@
+---
+title: "Exploratory Analysis"
+format: html
+editor: visual
+---
+
+## Data
+
+Loading the data:
+
+```{r}
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(readxl)
+
+Holocaust_Data_Historic_Populations <- read_csv("Holocaust Data - Historic Populations.csv")
+Holocaust_Data_Jewish_Deaths_by_Country <- read_csv("Holocaust Data - Jewish Deaths by Country.csv")
+Holocaust_Data_Jewish_population_2021 <- read_csv("Holocaust Data - Jewish population 2021.csv")
+Holocaust_Data_Victims_from_1933_1945 <- read_csv("Holocaust Data - Victims from 1933-1945.csv")
+Holocaust_Data_Jewish_population_2021 <- read_csv("Holocaust Data - Jewish population 2021.csv")
+Holocaust_Data_Percent_of_jewish_population_killed <- read_csv("Holocaust Data - Percent of jewish population killed.csv")
+
+country_comparisons_tidy <- read_excel("country_comparisons_tidy.xlsx")
+```
+
+Cleaning the data:
+
+```{r}
+Historic_Populations <- head(Holocaust_Data_Historic_Populations, - 1) 
+  colnames(Historic_Populations)[2] ="jewish_population"
+  Historic_Populations$Year <- as.Date(Historic_Populations$Year, format = "%Y")
+
+
+Jewish_Deaths_by_Country <- head(Holocaust_Data_Jewish_Deaths_by_Country, - 1)
+
+Jewish_population_2021 <- head(Holocaust_Data_Jewish_population_2021, - 2)
+
+Victims_from_1933_1945 <- head(Holocaust_Data_Victims_from_1933_1945, - 2)
+
+Percent_of_jewish_population_killed <- head(Holocaust_Data_Percent_of_jewish_population_killed, - 3)
+```
+
+## New Data Sets
+
+```{r}
+country_comparisons <- Jewish_population_2021 %>% 
+  inner_join(Percent_of_jewish_population_killed, by = "Country") %>% 
+  filter(Source == "USHMM")
+
+colnames(country_comparisons)[3] ="total_population_2021"
+colnames(country_comparisons)[4] ="jewish_population_2021"
+
+country_comparisons <- write_csv(country_comparisons, file = "country_comparisons.csv")
+```
+
+## Exploratory Graphs
+
+### Historic Populations
+
+```{r}
+ggplot(data = Historic_Populations, aes(x = Year, y = jewish_population))+
+  geom_line()+
+  labs(x="Year", y="Jewish Population", title="Jewish Population by Year (1880 - 2021)")
+```
+
+### Jewish Deaths by Country
+
+```{r}
+ggplot(data =Jewish_Deaths_by_Country, aes(x = country, y = number, fill = type))+
+  geom_bar(stat = "identity", position = position_dodge())
+
+
+```
+
+### Jewish Population 2021
+
+```{r}
+
+```
+
+# Country Comparisons
+
+```{r}
+pre_post_jewish_pop <- country_comparisons_tidy %>% 
+  filter(pop_type == "jewish_population_2021" | pop_type =="pre_war_jewish_pop") %>% 
+  drop_na()
+
+ggplot(data =pre_post_jewish_pop, aes(x = Country, y = population, fill = pop_type))+
+  geom_bar(stat = "identity", position = position_dodge())+
+  labs(x="Year", y="Jewish Population", fill = "Type of population", title="Comparison of Jewish Populations in European Countries (Pre-war, 2021)")
+```
+
+-   FIND FINLAND JEWish POP
